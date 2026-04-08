@@ -17,7 +17,7 @@ export default function SearchPage() {
   const { user } = useUser();
 
   const supabase = useMemo(
-    () => createClerkSupabaseClient(() => session?.getToken() ?? null),
+    () => createClerkSupabaseClient(() => session?.getToken() ?? Promise.resolve(null)),
     [session]
   );
 

@@ -19,7 +19,7 @@ export default function MyBooksPage() {
   const { user } = useUser();
 
   const supabase = useMemo(
-    () => createClerkSupabaseClient(() => session?.getToken() ?? null),
+    () => createClerkSupabaseClient(() => session?.getToken() ?? Promise.resolve(null)),
     [session]
   );
 
